@@ -12,12 +12,9 @@ import SafariServices
 
 class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var newsSource: UIButton!
     @IBOutlet weak var likeButtonElement: UIButton!
-    @IBAction func likeButton(_ sender: Any) {
-        makeLink()
-        print("New like")
-    }
     @IBOutlet weak var likesCount: UILabel!
     @IBOutlet weak var commentsCount: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -28,15 +25,24 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
     @IBOutlet weak var imageDate: UILabel!
     @IBOutlet weak var Image: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var commentMyName: UILabel!
     static let identifier = "DetailViewController"
     private var db = Firestore.firestore()
     var stringArr = [Comments]()
-    
     var news: News?
+    
+    let user = Auth.auth().currentUser
+    var myUserName: String = ""
+    var id: String = ""
+    var email: String = ""
+    
+    @IBAction func likeButton(_ sender: Any) {
+        makeLike()
+        print("New like")
+    }
     @IBAction func btnSubmitComment(_ sender: Any) {
     newComment()
     }
-    
     @IBAction func qrCodeButton(_ sender: Any) {
 
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "QrCodeViewController") as? QrCodeViewController else {
@@ -46,9 +52,25 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
         show(vc, sender: true)
     }
     
+    func getMyData() {
+        self.db.collection("users")
+            .whereField("idUser", isEqualTo: user?.uid as Any)
+            .getDocuments { (snapshot, error) in
+            for document in snapshot!.documents {
+                self.myUserName = String(describing: document.get("userName") ?? "")
+                self.id = self.user?.uid ?? ""
+                self.email = self.user?.email ?? ""
+                
+                self.commentMyName.text = self.myUserName
+                self.verifyLike()
+                self.getComments()
+                }
+            }
+    }
+    
     func verifyLike(){
         db.collection("likes")
-            .whereField("idUser", isEqualTo: 12334)
+            .whereField("idUser", isEqualTo: self.user?.uid)
             .whereField("idNotice", isEqualTo: news?.id)
             .getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -74,7 +96,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
         
     }
     
-    func makeLink() {
+    func makeLike() {
         db.collection("likes")
             .whereField("idUser", isEqualTo: 12334)
             .whereField("idNotice", isEqualTo: news?.id)
@@ -86,14 +108,8 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
                     var ref: DocumentReference? = nil
                     ref = self.db.collection("likes").addDocument(data: [
                         "idNotice": self.news?.id,
-                        "idUser": 12334,
-                    ]) { err in
-                        if let err = err {
-                            print("Error adding document: \(err)")
-                        } else {
-                            print("Document added with ID: \(ref!.documentID)")
-                        }
-                    }
+                        "idUser": self.user?.uid,
+                    ])
                     print("like")
                     self.verifyLike()
                 } else {
@@ -104,14 +120,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
                         if let snapshot = snapshot?.documents {
                             for doc in snapshot {
                                 //Do delete
-                                self.db.collection("likes").document(doc.documentID).delete() { err in
-                                    if let err = err {
-                                        print("Error removing document: \(err)")
-                                    } else {
-                                        print("Document successfully removed!")
-                                        self.verifyLike()
-                                    }
-                                }
+                                self.db.collection("likes").document(doc.documentID).delete()
                             }
                         }
                     }
@@ -123,36 +132,50 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
         }
     }
     
-    func newComment(){
-    var ref: DocumentReference? = nil
+    func showAlert(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-    ref = db.collection("comments").addDocument(data: [
-        "idNotice": news?.id,
-        "userName": "Carlos Moreira",
-        "commentBody": inputComments.text,
-    ]) { err in
-        if let err = err {
-            print("Error adding document: \(err)")
-        } else {
-            print("Document added with ID: \(ref!.documentID)")
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
         }
-    }
+        alertController.addAction(OKAction)
 
-        self.stringArr.insert(Comments(
-                                idNotice: news?.id ?? 0,
-                                userName: "Carlos Moreira",
-                                commentBody: String(describing: inputComments.text ?? ""))
-                              , at: 0)
-        inputComments.text = ""
-       
-        self.tableView.beginUpdates()
-        self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .right)
-        self.tableView.endUpdates()
-        self.commentsCount.text = String(self.stringArr.count)
+        present(alertController, animated: true)
+    }
+    
+    func newComment(){
+        if inputComments.text != "" {
+            var ref: DocumentReference? = nil
+            ref = db.collection("comments").addDocument(data: [
+                "idNotice": news?.id,
+                "userName": self.myUserName,
+                "commentBody": inputComments.text,
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    print("Document added with ID: \(ref!.documentID)")
+                }
+            }
+
+                self.stringArr.insert(Comments(
+                                        idNotice: news?.id ?? 0,
+                                        userName: self.myUserName,
+                                        commentBody: String(describing: inputComments.text ?? ""))
+                                      , at: 0)
+                inputComments.text = ""
+               
+                self.tableView.beginUpdates()
+                self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .right)
+                self.tableView.endUpdates()
+                self.commentsCount.text = String(self.stringArr.count)
+        }else {
+            showAlert(title: "Comentário vazio", message: "Por favor insira um comentário antes de publicar.")
+        }
+
     }
     
     func getComments(){
-        db.collection("comments").whereField("idNotice", isEqualTo: news?.id).getDocuments() { (querySnapshot, err) in
+        db.collection("comments").whereField("idNotice", isEqualTo: news?.id as Any).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -172,13 +195,10 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
         
         
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        getMyData()
         
-        
-        verifyLike()
-        getComments()
         // MARK: - Get image data
         func getImageDataFrom(url: URL) {
             URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -218,18 +238,14 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
         self.titleLabel?.text = news?.title
         self.newsDetails?.text = news?.summary
         self.newsSource?.setTitle(news?.newsSite, for: .normal)
-        
-        
         // Before we download the image we clear out the old one
         self.Image.image = nil
-        
         guard let posterImageURL = URL(string: news!.imageUrl) else {
             self.Image.image = UIImage(named: "noImageAvailable")
             return
         }
         getImageDataFrom(url: posterImageURL)
     }
-    
     @IBAction func newsSourceRedirect(_ sender: Any) {
         let safariVC = SFSafariViewController(url: NSURL(string: self.news?.url ?? "")! as URL)
         self.present(safariVC, animated: true, completion: nil)
@@ -240,24 +256,16 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
 
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
-        
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return stringArr.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsViewCell", for: indexPath) as? CommentsViewCell else {return UITableViewCell()}
-        
         cell.commentBody.text = stringArr[indexPath.row].commentBody
-        
-        
+        cell.commentUserName.text = stringArr[indexPath.row].userName
         return cell
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
-
-
 }

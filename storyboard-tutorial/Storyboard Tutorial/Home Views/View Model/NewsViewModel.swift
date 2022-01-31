@@ -3,13 +3,18 @@ import Foundation
 class NewsViewModel {
     
     private var apiService = ApiService()
+    private var cacheStore = CacheController()
     private var newsData = [News]()
     
     func fetchNewsData(completion: @escaping () -> ()) {
         
         // weak self - prevent retain cycles
-        apiService.getNewsData { [weak self] (result) in
-            switch result {
+        cacheStore.getArticlesByCache { [weak self] (result) in
+            
+
+
+       // ApiService.getNewsData { [weak self] (result) in
+       /*      switch result {
             case .success(let data):
                 self?.newsData = data
                 completion()
@@ -17,6 +22,10 @@ class NewsViewModel {
                 // Something is wrong with the JSON file or the model
                 print("Error processing json data: \(error)")
             }
+ */
+        self?.newsData = result
+            print("Dados Atualizados")
+            completion()
         }
     }
     
@@ -28,6 +37,7 @@ class NewsViewModel {
     }
     
     func cellForRowAt (indexPath: IndexPath) -> News {
+       
         return newsData[indexPath.row]
     }
 }

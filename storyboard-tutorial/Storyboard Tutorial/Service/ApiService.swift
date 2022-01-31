@@ -10,9 +10,9 @@ import Foundation
 
 class ApiService {
     
-    private var dataTask: URLSessionDataTask?
+    static var dataTask: URLSessionDataTask?
     
-    func getNewsData(completion: @escaping (Result<[News], Error>) -> Void) {
+    static func getNewsData(completion: @escaping (Result<[News], Error>) -> Void) {
         
         let popularMoviesURL = "https://api.spaceflightnewsapi.net/v3/articles"
         

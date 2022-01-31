@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0478AAF325367A35008CEF0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478AAF225367A35008CEF0D /* AppDelegate.swift */; };
 		0478AAF525367A35008CEF0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478AAF425367A35008CEF0D /* SceneDelegate.swift */; };
-		0478AAF725367A35008CEF0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478AAF625367A35008CEF0D /* ViewController.swift */; };
+		0478AAF725367A35008CEF0D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478AAF625367A35008CEF0D /* LoginViewController.swift */; };
 		0478AAFA25367A35008CEF0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0478AAF825367A35008CEF0D /* Main.storyboard */; };
 		0478AAFC25367A37008CEF0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0478AAFB25367A37008CEF0D /* Assets.xcassets */; };
 		0478AAFF25367A37008CEF0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0478AAFD25367A37008CEF0D /* LaunchScreen.storyboard */; };
@@ -19,6 +19,10 @@
 		4D0CE47A27721B4F00464FFA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CE47927721B4F00464FFA /* RegisterViewController.swift */; };
 		4D20B3BD27A3485D00AC385E /* QrCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D20B3BC27A3485D00AC385E /* QrCodeViewController.swift */; };
 		4D3BA0B6277A6F0A00622D81 /* FirstViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3BA0B5277A6F0A00622D81 /* FirstViewCell.swift */; };
+		4D48463227A5886500365EB2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48463127A5886500365EB2 /* RootViewController.swift */; };
+		4D48463527A5902E00365EB2 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48463427A5902E00365EB2 /* TabViewController.swift */; };
+		4D48463C27A59C4B00365EB2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48463B27A59C4B00365EB2 /* ProfileViewController.swift */; };
+		4D6102DA27A449B900CDEDD9 /* CacheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6102D927A449B900CDEDD9 /* CacheController.swift */; };
 		4D6E087727A2F47600CEAFE0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D6E087627A2F47600CEAFE0 /* GoogleService-Info.plist */; };
 		4D8BAB28279EFC2B00E2080E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BAB27279EFC2B00E2080E /* DetailViewController.swift */; };
 		4DAA6B0327A0531A000E9CDE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4DAA6B0227A0531A000E9CDE /* FirebaseAnalytics */; };
@@ -32,7 +36,7 @@
 /* Begin PBXFileReference section */
 		0478AAF225367A35008CEF0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0478AAF425367A35008CEF0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0478AAF625367A35008CEF0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0478AAF625367A35008CEF0D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0478AAF925367A35008CEF0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0478AAFB25367A37008CEF0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0478AAFE25367A37008CEF0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,6 +48,10 @@
 		4D10B1E42772303C00571C9C /* Storyboard Tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Storyboard Tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D20B3BC27A3485D00AC385E /* QrCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeViewController.swift; sourceTree = "<group>"; };
 		4D3BA0B5277A6F0A00622D81 /* FirstViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewCell.swift; sourceTree = "<group>"; };
+		4D48463127A5886500365EB2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		4D48463427A5902E00365EB2 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		4D48463B27A59C4B00365EB2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4D6102D927A449B900CDEDD9 /* CacheController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheController.swift; sourceTree = "<group>"; };
 		4D6E087627A2F47600CEAFE0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D8BAB27279EFC2B00E2080E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4DE251EB27A18F62005E712F /* CommentsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewCell.swift; sourceTree = "<group>"; };
@@ -76,19 +84,19 @@
 		0478AAF125367A35008CEF0D /* Storyboard Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				4D8BAB25279EFBB300E2080E /* Details View */,
+				4DC9205527A4AB75007B922C /* Cache */,
+				4DC9205427A4AB57007B922C /* Auth Views */,
 				4D0AFA5E277769D600C02523 /* Home Views */,
 				4DE9EA2E27726C7400F98AB6 /* Model */,
 				4DE9EA2927726A5500F98AB6 /* Service */,
 				0478AAF225367A35008CEF0D /* AppDelegate.swift */,
 				0478AAF425367A35008CEF0D /* SceneDelegate.swift */,
-				0478AAF625367A35008CEF0D /* ViewController.swift */,
-				4D0CE47927721B4F00464FFA /* RegisterViewController.swift */,
 				0478AAF825367A35008CEF0D /* Main.storyboard */,
 				4D6E087627A2F47600CEAFE0 /* GoogleService-Info.plist */,
 				0478AAFB25367A37008CEF0D /* Assets.xcassets */,
 				0478AAFD25367A37008CEF0D /* LaunchScreen.storyboard */,
 				0478AB0025367A37008CEF0D /* Info.plist */,
+				4D48463127A5886500365EB2 /* RootViewController.swift */,
 			);
 			path = "Storyboard Tutorial";
 			sourceTree = "<group>";
@@ -96,10 +104,12 @@
 		4D0AFA5E277769D600C02523 /* Home Views */ = {
 			isa = PBXGroup;
 			children = (
+				4D8BAB25279EFBB300E2080E /* Details View */,
+				4D48463A27A59C2F00365EB2 /* Profile View */,
+				4D48463827A59AF500365EB2 /* Main Cells */,
 				4D0AFA692777742E00C02523 /* View Model */,
 				4D0AFA5B27773E8E00C02523 /* MainViewController.swift */,
-				4D0AFA6427776B8D00C02523 /* MainViewCell.swift */,
-				4D3BA0B5277A6F0A00622D81 /* FirstViewCell.swift */,
+				4D48463427A5902E00365EB2 /* TabViewController.swift */,
 			);
 			path = "Home Views";
 			sourceTree = "<group>";
@@ -112,6 +122,23 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		4D48463827A59AF500365EB2 /* Main Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4D3BA0B5277A6F0A00622D81 /* FirstViewCell.swift */,
+				4D0AFA6427776B8D00C02523 /* MainViewCell.swift */,
+			);
+			path = "Main Cells";
+			sourceTree = "<group>";
+		};
+		4D48463A27A59C2F00365EB2 /* Profile View */ = {
+			isa = PBXGroup;
+			children = (
+				4D48463B27A59C4B00365EB2 /* ProfileViewController.swift */,
+			);
+			path = "Profile View";
+			sourceTree = "<group>";
+		};
 		4D8BAB25279EFBB300E2080E /* Details View */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +147,23 @@
 				4D20B3BC27A3485D00AC385E /* QrCodeViewController.swift */,
 			);
 			path = "Details View";
+			sourceTree = "<group>";
+		};
+		4DC9205427A4AB57007B922C /* Auth Views */ = {
+			isa = PBXGroup;
+			children = (
+				0478AAF625367A35008CEF0D /* LoginViewController.swift */,
+				4D0CE47927721B4F00464FFA /* RegisterViewController.swift */,
+			);
+			path = "Auth Views";
+			sourceTree = "<group>";
+		};
+		4DC9205527A4AB75007B922C /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				4D6102D927A449B900CDEDD9 /* CacheController.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		4DE9EA2927726A5500F98AB6 /* Service */ = {
@@ -221,8 +265,12 @@
 				4D0AFA5C27773E8E00C02523 /* MainViewController.swift in Sources */,
 				4D0AFA6B2777747E00C02523 /* NewsViewModel.swift in Sources */,
 				4DE9EA3027726C8A00F98AB6 /* Model.swift in Sources */,
-				0478AAF725367A35008CEF0D /* ViewController.swift in Sources */,
+				4D6102DA27A449B900CDEDD9 /* CacheController.swift in Sources */,
+				4D48463227A5886500365EB2 /* RootViewController.swift in Sources */,
+				0478AAF725367A35008CEF0D /* LoginViewController.swift in Sources */,
+				4D48463C27A59C4B00365EB2 /* ProfileViewController.swift in Sources */,
 				4DE9EA2B27726C6500F98AB6 /* ApiService.swift in Sources */,
+				4D48463527A5902E00365EB2 /* TabViewController.swift in Sources */,
 				4DE251EC27A18F62005E712F /* CommentsViewCell.swift in Sources */,
 				4D20B3BD27A3485D00AC385E /* QrCodeViewController.swift in Sources */,
 				0478AAF325367A35008CEF0D /* AppDelegate.swift in Sources */,
@@ -381,12 +429,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KX334G8BYM;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Storyboard Tutorial/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CODE_SIGN_FLAGS = "--generate-entitlement-der";
 				PRODUCT_BUNDLE_IDENTIFIER = PDMII;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -402,12 +452,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KX334G8BYM;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Storyboard Tutorial/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CODE_SIGN_FLAGS = "--generate-entitlement-der";
 				PRODUCT_BUNDLE_IDENTIFIER = PDMII;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

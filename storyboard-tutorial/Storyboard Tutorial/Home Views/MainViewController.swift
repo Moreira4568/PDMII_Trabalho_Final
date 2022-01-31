@@ -8,12 +8,14 @@
 import UIKit
 import SafariServices
 import Firebase
+import UserNotifications
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     
+    static let identifier = "MainViewController"
+    let refreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var CellContainer: MainViewCell!
     @IBOutlet weak var FirstCellContainer: FirstViewCell!
     
@@ -24,14 +26,28 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+        }
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl) // not required when using UITableViewController
+        
         self.navigationController?.setNavigationBarHidden(true, animated: true);
         super.viewWillDisappear(true)
         loadNewsData()
         view.addSubview(tableView)
-                tableView.delegate = self
-                tableView.dataSource = self
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         
+    }
+    @objc func refresh(_ sender: AnyObject) {
+       loadNewsData()
+        refreshControl.endRefreshing()
     }
     
     private func loadNewsData() {
@@ -52,7 +68,12 @@ extension MainViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
+        if (indexPath.row == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "primary_cell") as! FirstViewCell
+            let news = viewModel.cellForRowAt(indexPath: indexPath)
+            cell.setCellWithValuesOf(news)
+            return cell
+        } else if (indexPath.row == 5){
             let cell = tableView.dequeueReusableCell(withIdentifier: "primary_cell") as! FirstViewCell
             let news = viewModel.cellForRowAt(indexPath: indexPath)
             cell.setCellWithValuesOf(news)
@@ -60,10 +81,11 @@ extension MainViewController {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MainViewCell
             let news = viewModel.cellForRowAt(indexPath: indexPath)
-            
             cell.setCellWithValuesOf(news)
             return cell
         }
+        
+        
     }
 
 
@@ -84,7 +106,6 @@ extension MainViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.setNavigationBarHidden(true, animated: true);
     }
     
