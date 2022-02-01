@@ -12,6 +12,7 @@ import SafariServices
 
 class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
     
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var newsSource: UIButton!
     @IBOutlet weak var likeButtonElement: UIButton!
@@ -30,11 +31,12 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
     private var db = Firestore.firestore()
     var stringArr = [Comments]()
     var news: News?
-    
+    var radius = 10
     let user = Auth.auth().currentUser
     var myUserName: String = ""
     var id: String = ""
     var email: String = ""
+    var image: UIImage!
     
     @IBAction func likeButton(_ sender: Any) {
         makeLike()
@@ -68,6 +70,19 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
             }
     }
     
+    @IBAction func shareInstagram(_ sender: Any) {
+        guard let image = self.image, let url = URL(string: news?.url ?? "") else {
+            return
+        }
+        let shareSheetvc = UIActivityViewController(
+            activityItems: [image,url],
+            applicationActivities: nil
+        )
+        shareSheetvc.excludedActivityTypes = [.mail]
+        
+        present(shareSheetvc, animated: true)
+    }
+    
     func verifyLike(){
         db.collection("likes")
             .whereField("idUser", isEqualTo: self.user?.uid)
@@ -98,7 +113,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
     
     func makeLike() {
         db.collection("likes")
-            .whereField("idUser", isEqualTo: 12334)
+            .whereField("idUser", isEqualTo: user?.uid as Any)
             .whereField("idNotice", isEqualTo: news?.id)
             .getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -114,13 +129,13 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
                     self.verifyLike()
                 } else {
                     self.db.collection("likes")
-                        .whereField("idUser", isEqualTo: 12334)
+                        .whereField("idUser", isEqualTo: self.user?.uid as Any)
                         .whereField("idNotice", isEqualTo: self.news?.id)
                         .getDocuments { (snapshot, error) in
                         if let snapshot = snapshot?.documents {
                             for doc in snapshot {
-                                //Do delete
                                 self.db.collection("likes").document(doc.documentID).delete()
+                                self.verifyLike()
                             }
                         }
                     }
@@ -149,6 +164,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
                 "idNotice": news?.id,
                 "userName": self.myUserName,
                 "commentBody": inputComments.text,
+                "commentDate": Date()
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -160,7 +176,9 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
                 self.stringArr.insert(Comments(
                                         idNotice: news?.id ?? 0,
                                         userName: self.myUserName,
-                                        commentBody: String(describing: inputComments.text ?? ""))
+                                        commentBody: String(describing: inputComments.text ?? ""),
+                    commentDate: (Date() as? Timestamp)?.dateValue() ?? Date()
+                )
                                       , at: 0)
                 inputComments.text = ""
                
@@ -183,7 +201,9 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
                     self.stringArr.insert(Comments(
                                             idNotice: self.news?.id ?? 0,
                                             userName: String(describing: document.get("userName") ?? ""),
-                                            commentBody: String(describing: document.get("commentBody") ?? ""))
+                                            commentBody: String(describing: document.get("commentBody") ?? ""),
+                        commentDate: (document.get("CommentDate") as? Timestamp)?.dateValue() ?? Date()
+                    )
                                           , at: 0)
                     self.tableView.beginUpdates()
                     self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .right)
@@ -195,45 +215,56 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
         
         
     }
+    
+    // MARK: - Get image data
+    func getImageDataFrom(url: URL) {
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            // Handle Error
+            if let error = error {
+                print("DataTask error: \(error.localizedDescription)")
+                return
+            }
+            guard let data = data else {
+                // Handle Empty Data
+                print("Empty Data")
+                return
+            }
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data) {
+                    self.Image.image = image
+                    self.image = image
+                }
+            }
+        }.resume()
+    }
+    
+    // MARK: - Convert date format
+    func convertDateFormater(_ date: String?) -> String {
+        var fixDate = ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = .init(identifier: "pt_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        if let originalDate = date {
+            if let newDate = dateFormatter.date(from: originalDate) {
+                dateFormatter.dateFormat = "EEEE, MMM d"
+                fixDate = dateFormatter.string(from: newDate)
+            }
+        }
+        return fixDate
+    }
+    
+    @IBAction func newsSourceRedirect(_ sender: Any) {
+        let safariVC = SFSafariViewController(url: NSURL(string: self.news?.url ?? "")! as URL)
+        self.present(safariVC, animated: true, completion: nil)
+        safariVC.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getMyData()
-        
-        // MARK: - Get image data
-        func getImageDataFrom(url: URL) {
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                // Handle Error
-                if let error = error {
-                    print("DataTask error: \(error.localizedDescription)")
-                    return
-                }
-                guard let data = data else {
-                    // Handle Empty Data
-                    print("Empty Data")
-                    return
-                }
-                DispatchQueue.main.async {
-                    if let image = UIImage(data: data) {
-                        self.Image.image = image
-                    }
-                }
-            }.resume()
-        }
-        
-        // MARK: - Convert date format
-        func convertDateFormater(_ date: String?) -> String {
-            var fixDate = ""
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = .init(identifier: "pt_POSIX")
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-            if let originalDate = date {
-                if let newDate = dateFormatter.date(from: originalDate) {
-                    dateFormatter.dateFormat = "EEEE, MMM d"
-                    fixDate = dateFormatter.string(from: newDate)
-                }
-            }
-            return fixDate
-        }
+        Image.layer.cornerRadius = CGFloat(radius)
+        inputComments.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+
         self.imageDate.text = convertDateFormater(news?.publishedAt)
         self.titleLabel?.text = news?.title
         self.newsDetails?.text = news?.summary
@@ -245,11 +276,6 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
             return
         }
         getImageDataFrom(url: posterImageURL)
-    }
-    @IBAction func newsSourceRedirect(_ sender: Any) {
-        let safariVC = SFSafariViewController(url: NSURL(string: self.news?.url ?? "")! as URL)
-        self.present(safariVC, animated: true, completion: nil)
-        safariVC.delegate = self
     }
 }
 
@@ -263,8 +289,18 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsViewCell", for: indexPath) as? CommentsViewCell else {return UITableViewCell()}
         cell.commentBody.text = stringArr[indexPath.row].commentBody
         cell.commentUserName.text = stringArr[indexPath.row].userName
+        
+        var formatter = DateFormatter()
+        formatter.locale = .init(identifier: "pt_POSIX")
+        formatter.dateFormat = "EEEE, MMM d"
+        var formatteddate = formatter.string(from: stringArr[indexPath.row].commentDate)
+        
+        cell.commentDate.text = formatteddate
+
         return cell
     }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }

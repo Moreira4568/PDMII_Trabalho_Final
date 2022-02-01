@@ -1,36 +1,25 @@
-//
-//  MainViewController.swift
-//  Storyboard Tutorial
-//
-//  Created by Carlos Moreira on 25/12/2021.
-//
-
 import UIKit
 import SafariServices
 import Firebase
 import UserNotifications
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     
-    static let identifier = "MainViewController"
-    let refreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
+    static let identifier = "FavoritesViewController"
+    let refreshControl = UIRefreshControl()
     @IBOutlet weak var CellContainer: MainViewCell!
     @IBOutlet weak var FirstCellContainer: FirstViewCell!
     
 
-    private var viewModel = NewsViewModel()
+    private var viewModel = FavoriteNewsViewModel()
 
     @IBOutlet weak var mainImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-        }
-        
+
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl) // not required when using UITableViewController
@@ -51,7 +40,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     private func loadNewsDataCache() {
-        viewModel.fetchNewsDataWithCache { [weak self] in
+        viewModel.fetchFavoriteNewsData { [weak self] in
             self?.tableView.dataSource = self
             self?.tableView.reloadData()
         }
@@ -59,7 +48,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 }
 
 // MARK: - TableView
-extension MainViewController {
+extension FavoritesViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section: section)
@@ -68,22 +57,11 @@ extension MainViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if (indexPath.row == 0) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "primary_cell") as! FirstViewCell
-            let news = viewModel.cellForRowAt(indexPath: indexPath)
-            cell.setCellWithValuesOf(news)
-            return cell
-        } else if (indexPath.row == 5){
-            let cell = tableView.dequeueReusableCell(withIdentifier: "primary_cell") as! FirstViewCell
-            let news = viewModel.cellForRowAt(indexPath: indexPath)
-            cell.setCellWithValuesOf(news)
-            return cell
-        } else {
+
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MainViewCell
             let news = viewModel.cellForRowAt(indexPath: indexPath)
             cell.setCellWithValuesOf(news)
             return cell
-        }
         
         
     }
@@ -110,6 +88,7 @@ extension MainViewController {
     }
     
 }
+
 
 
 

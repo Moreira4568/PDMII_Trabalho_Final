@@ -11,14 +11,19 @@
 		0478AAF525367A35008CEF0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478AAF425367A35008CEF0D /* SceneDelegate.swift */; };
 		0478AAF725367A35008CEF0D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478AAF625367A35008CEF0D /* LoginViewController.swift */; };
 		0478AAFA25367A35008CEF0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0478AAF825367A35008CEF0D /* Main.storyboard */; };
-		0478AAFC25367A37008CEF0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0478AAFB25367A37008CEF0D /* Assets.xcassets */; };
 		0478AAFF25367A37008CEF0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0478AAFD25367A37008CEF0D /* LaunchScreen.storyboard */; };
+		4D07164827A989CB00FD80C0 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D07164727A989CB00FD80C0 /* FavoritesViewController.swift */; };
+		4D07164B27A991A200FD80C0 /* FavoriteNewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D07164A27A991A200FD80C0 /* FavoriteNewsViewModel.swift */; };
+		4D07164E27A9926500FD80C0 /* FavoritesNewsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D07164D27A9926500FD80C0 /* FavoritesNewsApiService.swift */; };
 		4D0AFA5C27773E8E00C02523 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AFA5B27773E8E00C02523 /* MainViewController.swift */; };
 		4D0AFA6527776B8D00C02523 /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AFA6427776B8D00C02523 /* MainViewCell.swift */; };
 		4D0AFA6B2777747E00C02523 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AFA6A2777747E00C02523 /* NewsViewModel.swift */; };
 		4D0CE47A27721B4F00464FFA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0CE47927721B4F00464FFA /* RegisterViewController.swift */; };
 		4D20B3BD27A3485D00AC385E /* QrCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D20B3BC27A3485D00AC385E /* QrCodeViewController.swift */; };
 		4D3BA0B6277A6F0A00622D81 /* FirstViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3BA0B5277A6F0A00622D81 /* FirstViewCell.swift */; };
+		4D47E37227A82CE100BE5DC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D47E37127A82CE100BE5DC9 /* Assets.xcassets */; };
+		4D47E37827A83D2800BE5DC9 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 4D47E37727A83D2800BE5DC9 /* FacebookShare */; };
+		4D47E37E27A880AC00BE5DC9 /* QrCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D47E37D27A880AC00BE5DC9 /* QrCodeScannerViewController.swift */; };
 		4D48463227A5886500365EB2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48463127A5886500365EB2 /* RootViewController.swift */; };
 		4D48463527A5902E00365EB2 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48463427A5902E00365EB2 /* TabViewController.swift */; };
 		4D48463C27A59C4B00365EB2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48463B27A59C4B00365EB2 /* ProfileViewController.swift */; };
@@ -38,9 +43,11 @@
 		0478AAF425367A35008CEF0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0478AAF625367A35008CEF0D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0478AAF925367A35008CEF0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0478AAFB25367A37008CEF0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0478AAFE25367A37008CEF0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0478AB0025367A37008CEF0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D07164727A989CB00FD80C0 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		4D07164A27A991A200FD80C0 /* FavoriteNewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNewsViewModel.swift; sourceTree = "<group>"; };
+		4D07164D27A9926500FD80C0 /* FavoritesNewsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesNewsApiService.swift; sourceTree = "<group>"; };
 		4D0AFA5B27773E8E00C02523 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4D0AFA6427776B8D00C02523 /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		4D0AFA6A2777747E00C02523 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
@@ -48,6 +55,8 @@
 		4D10B1E42772303C00571C9C /* Storyboard Tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Storyboard Tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D20B3BC27A3485D00AC385E /* QrCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeViewController.swift; sourceTree = "<group>"; };
 		4D3BA0B5277A6F0A00622D81 /* FirstViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewCell.swift; sourceTree = "<group>"; };
+		4D47E37127A82CE100BE5DC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4D47E37D27A880AC00BE5DC9 /* QrCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeScannerViewController.swift; sourceTree = "<group>"; };
 		4D48463127A5886500365EB2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		4D48463427A5902E00365EB2 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		4D48463B27A59C4B00365EB2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +75,7 @@
 			files = (
 				4DAA6B0327A0531A000E9CDE /* FirebaseAnalytics in Frameworks */,
 				4DAA6B0727A0531A000E9CDE /* FirebaseAuth in Frameworks */,
+				4D47E37827A83D2800BE5DC9 /* FacebookShare in Frameworks */,
 				4DAA6B0527A0531A000E9CDE /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +94,7 @@
 		0478AAF125367A35008CEF0D /* Storyboard Tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				4D47E37C27A8808400BE5DC9 /* QrCodeScanner  */,
 				4DC9205527A4AB75007B922C /* Cache */,
 				4DC9205427A4AB57007B922C /* Auth Views */,
 				4D0AFA5E277769D600C02523 /* Home Views */,
@@ -92,8 +103,8 @@
 				0478AAF225367A35008CEF0D /* AppDelegate.swift */,
 				0478AAF425367A35008CEF0D /* SceneDelegate.swift */,
 				0478AAF825367A35008CEF0D /* Main.storyboard */,
+				4D47E37127A82CE100BE5DC9 /* Assets.xcassets */,
 				4D6E087627A2F47600CEAFE0 /* GoogleService-Info.plist */,
-				0478AAFB25367A37008CEF0D /* Assets.xcassets */,
 				0478AAFD25367A37008CEF0D /* LaunchScreen.storyboard */,
 				0478AB0025367A37008CEF0D /* Info.plist */,
 				4D48463127A5886500365EB2 /* RootViewController.swift */,
@@ -101,9 +112,18 @@
 			path = "Storyboard Tutorial";
 			sourceTree = "<group>";
 		};
+		4D07164627A9899400FD80C0 /* Favorites View */ = {
+			isa = PBXGroup;
+			children = (
+				4D07164727A989CB00FD80C0 /* FavoritesViewController.swift */,
+			);
+			path = "Favorites View";
+			sourceTree = "<group>";
+		};
 		4D0AFA5E277769D600C02523 /* Home Views */ = {
 			isa = PBXGroup;
 			children = (
+				4D07164627A9899400FD80C0 /* Favorites View */,
 				4D8BAB25279EFBB300E2080E /* Details View */,
 				4D48463A27A59C2F00365EB2 /* Profile View */,
 				4D48463827A59AF500365EB2 /* Main Cells */,
@@ -118,8 +138,17 @@
 			isa = PBXGroup;
 			children = (
 				4D0AFA6A2777747E00C02523 /* NewsViewModel.swift */,
+				4D07164A27A991A200FD80C0 /* FavoriteNewsViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		4D47E37C27A8808400BE5DC9 /* QrCodeScanner  */ = {
+			isa = PBXGroup;
+			children = (
+				4D47E37D27A880AC00BE5DC9 /* QrCodeScannerViewController.swift */,
+			);
+			path = "QrCodeScanner ";
 			sourceTree = "<group>";
 		};
 		4D48463827A59AF500365EB2 /* Main Cells */ = {
@@ -170,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				4DE9EA2A27726C6500F98AB6 /* ApiService.swift */,
+				4D07164D27A9926500FD80C0 /* FavoritesNewsApiService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -202,6 +232,7 @@
 				4DAA6B0227A0531A000E9CDE /* FirebaseAnalytics */,
 				4DAA6B0427A0531A000E9CDE /* FirebaseFirestore */,
 				4DAA6B0627A0531A000E9CDE /* FirebaseAuth */,
+				4D47E37727A83D2800BE5DC9 /* FacebookShare */,
 			);
 			productName = "Storyboard Tutorial";
 			productReference = 4D10B1E42772303C00571C9C /* Storyboard Tutorial.app */;
@@ -232,6 +263,7 @@
 			mainGroup = 0478AAE625367A35008CEF0D;
 			packageReferences = (
 				4DAA6B0127A0531A000E9CDE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				4D47E37627A83D2800BE5DC9 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 0478AAE625367A35008CEF0D;
 			projectDirPath = "";
@@ -249,7 +281,7 @@
 			files = (
 				0478AAFF25367A37008CEF0D /* LaunchScreen.storyboard in Resources */,
 				4D6E087727A2F47600CEAFE0 /* GoogleService-Info.plist in Resources */,
-				0478AAFC25367A37008CEF0D /* Assets.xcassets in Resources */,
+				4D47E37227A82CE100BE5DC9 /* Assets.xcassets in Resources */,
 				0478AAFA25367A35008CEF0D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,14 +294,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D8BAB28279EFC2B00E2080E /* DetailViewController.swift in Sources */,
+				4D07164E27A9926500FD80C0 /* FavoritesNewsApiService.swift in Sources */,
+				4D47E37E27A880AC00BE5DC9 /* QrCodeScannerViewController.swift in Sources */,
 				4D0AFA5C27773E8E00C02523 /* MainViewController.swift in Sources */,
 				4D0AFA6B2777747E00C02523 /* NewsViewModel.swift in Sources */,
 				4DE9EA3027726C8A00F98AB6 /* Model.swift in Sources */,
 				4D6102DA27A449B900CDEDD9 /* CacheController.swift in Sources */,
 				4D48463227A5886500365EB2 /* RootViewController.swift in Sources */,
+				4D07164B27A991A200FD80C0 /* FavoriteNewsViewModel.swift in Sources */,
 				0478AAF725367A35008CEF0D /* LoginViewController.swift in Sources */,
 				4D48463C27A59C4B00365EB2 /* ProfileViewController.swift in Sources */,
 				4DE9EA2B27726C6500F98AB6 /* ApiService.swift in Sources */,
+				4D07164827A989CB00FD80C0 /* FavoritesViewController.swift in Sources */,
 				4D48463527A5902E00365EB2 /* TabViewController.swift in Sources */,
 				4DE251EC27A18F62005E712F /* CommentsViewCell.swift in Sources */,
 				4D20B3BD27A3485D00AC385E /* QrCodeViewController.swift in Sources */,
@@ -336,6 +372,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -398,6 +436,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -491,6 +531,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4D47E37627A83D2800BE5DC9 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.3.1;
+			};
+		};
 		4DAA6B0127A0531A000E9CDE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -502,6 +550,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4D47E37727A83D2800BE5DC9 /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D47E37627A83D2800BE5DC9 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
+		};
 		4DAA6B0227A0531A000E9CDE /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4DAA6B0127A0531A000E9CDE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

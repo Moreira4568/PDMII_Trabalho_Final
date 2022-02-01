@@ -1,23 +1,13 @@
 import Foundation
 
-class NewsViewModel {
+class FavoriteNewsViewModel {
     
-    private var apiService = ApiService()
-    private var cacheStore = CacheController()
     private var newsData = [News]()
     
-    func fetchNewsDataWithCache(completion: @escaping () -> ()) {
-
-        cacheStore.getArticlesByCache { [weak self] (result) in
-        self?.newsData = result
-            print("Dados Atualizados")
-            completion()
-        }
-    }
     
-    func fetchNewsData(completion: @escaping () -> ()) {
+    func fetchFavoriteNewsData(completion: @escaping () -> ()) {
 
-    ApiService.getNewsData { [weak self] (result) in
+        FavoritesNewsApiService.getFavoritesNewsData { [weak self] (result) in
             switch result {
             case .success(let data):
                 self?.newsData = data

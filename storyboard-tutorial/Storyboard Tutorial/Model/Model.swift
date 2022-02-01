@@ -19,5 +19,6 @@ struct Comments: Codable {
     let idNotice: Int
     let userName: String
     let commentBody: String
+    let commentDate: Date
 }
 

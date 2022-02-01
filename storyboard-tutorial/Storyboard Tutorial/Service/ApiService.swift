@@ -14,9 +14,9 @@ class ApiService {
     
     static func getNewsData(completion: @escaping (Result<[News], Error>) -> Void) {
         
-        let popularMoviesURL = "https://api.spaceflightnewsapi.net/v3/articles"
+        let newsURL = "https://api.spaceflightnewsapi.net/v3/articles"
         
-        guard let url = URL(string: popularMoviesURL) else {return}
+        guard let url = URL(string: newsURL) else {return}
         
         // Create URL Session - work on the background
         dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
