@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Storyboard Tutorial
-//
-//  Created by Johan on 14/10/2020.
-//
-
 import UIKit
 import Firebase
 

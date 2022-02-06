@@ -21,11 +21,13 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Coloca cantos arredondados
         userTextField.layer.cornerRadius = CGFloat(radius)
         passwordTextField.layer.cornerRadius = CGFloat(radius)
         signInButton.layer.cornerRadius = CGFloat(radius)
         emailTextField.layer.cornerRadius = CGFloat(radius)
         
+        //Muda a cor do placeholder
         userTextField.attributedPlaceholder = NSAttributedString(
             string: "Username",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "muted")]

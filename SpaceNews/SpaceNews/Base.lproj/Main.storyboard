@@ -13,7 +13,7 @@
         <!--Root View Controller-->
         <scene sceneID="jyb-ac-pkI">
             <objects>
-                <viewController storyboardIdentifier="RootViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OO3-UH-q7b" customClass="RootViewController" customModule="Storyboard_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RootViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OO3-UH-q7b" customClass="RootViewController" customModule="SpaceNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eID-5D-Fv0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Storyboard_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginViewController" customModule="SpaceNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -172,7 +172,7 @@
         <!--Register View Controller-->
         <scene sceneID="yid-DS-tCC">
             <objects>
-                <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HOJ-7f-rjp" customClass="RegisterViewController" customModule="Storyboard_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HOJ-7f-rjp" customClass="RegisterViewController" customModule="SpaceNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ORy-Kq-K2L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -333,7 +333,7 @@
         <!--Favorites View Controller-->
         <scene sceneID="a0o-FY-gCm">
             <objects>
-                <viewController storyboardIdentifier="FavoritesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xcf-Lu-hw4" customClass="FavoritesViewController" customModule="Storyboard_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoritesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xcf-Lu-hw4" customClass="FavoritesViewController" customModule="SpaceNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9GJ-Oc-Zzb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -348,7 +348,7 @@
                                 <rect key="frame" x="0.0" y="90" width="320" height="429"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="149" id="Gmb-X8-ClO" userLabel="cell" customClass="MainViewCell" customModule="Storyboard_Tutorial" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="149" id="Gmb-X8-ClO" userLabel="cell" customClass="MainViewCell" customModule="SpaceNews" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="149"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gmb-X8-ClO" id="Jda-fN-YZw">
@@ -439,7 +439,7 @@
         <!--Perfil-->
         <scene sceneID="dvC-gy-cL5">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="anB-Br-PMd" customClass="ProfileViewController" customModule="Storyboard_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="anB-Br-PMd" customClass="ProfileViewController" customModule="SpaceNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Gp-hv-0Q7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -567,7 +567,7 @@
         <!--Main View Controller-->
         <scene sceneID="ndh-iS-oE9">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0fN-Rt-2Nl" customClass="MainViewController" customModule="Storyboard_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0fN-Rt-2Nl" customClass="MainViewController" customModule="SpaceNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GlJ-UM-m5O">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -576,7 +576,7 @@
                                 <rect key="frame" x="0.0" y="90" width="320" height="478"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="primary_cell" rowHeight="199" translatesAutoresizingMaskIntoConstraints="NO" id="weX-1J-MUX" userLabel="primary_cell" customClass="FirstViewCell" customModule="Storyboard_Tutorial" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="primary_cell" rowHeight="199" translatesAutoresizingMaskIntoConstraints="NO" id="weX-1J-MUX" userLabel="primary_cell" customClass="FirstViewCell" customModule="SpaceNews" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="199"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="weX-1J-MUX" id="2oM-ri-4GT">
@@ -624,7 +624,7 @@
                                             <outlet property="FirstNewsTitle" destination="yFa-Xc-KeQ" id="kZ3-Dq-x15"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="149" id="MKX-ga-26E" userLabel="cell" customClass="MainViewCell" customModule="Storyboard_Tutorial" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="149" id="MKX-ga-26E" userLabel="cell" customClass="MainViewCell" customModule="SpaceNews" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="227" width="320" height="149"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MKX-ga-26E" id="szi-mq-eoI">
@@ -745,7 +745,7 @@
         <!--Detail View Controller-->
         <scene sceneID="FC2-VM-KZq">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4wA-ze-7I8" customClass="DetailViewController" customModule="Storyboard_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4wA-ze-7I8" customClass="DetailViewController" customModule="SpaceNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L0G-7b-gjX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -800,7 +800,7 @@
                                                 <rect key="frame" x="10" y="498" width="300" height="342"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentsViewCell" rowHeight="68" id="dSA-rd-gia" userLabel="CommentsViewCell" customClass="CommentsViewCell" customModule="Storyboard_Tutorial" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentsViewCell" rowHeight="68" id="dSA-rd-gia" userLabel="CommentsViewCell" customClass="CommentsViewCell" customModule="SpaceNews" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="300" height="68"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dSA-rd-gia" id="AME-zk-e7m">
@@ -1042,7 +1042,7 @@
         <!--Qr Code View Controller-->
         <scene sceneID="dXH-qY-Rv0">
             <objects>
-                <viewController storyboardIdentifier="QrCodeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tJ9-mW-4wY" customClass="QrCodeViewController" customModule="Storyboard_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QrCodeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tJ9-mW-4wY" customClass="QrCodeViewController" customModule="SpaceNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gvY-74-ugI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1075,7 +1075,7 @@
         <!--Qr Code Scanner View Controller-->
         <scene sceneID="v0N-ae-xUY">
             <objects>
-                <viewController storyboardIdentifier="QrCodeScannerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hWK-5V-D6f" customClass="QrCodeScannerViewController" customModule="Storyboard_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QrCodeScannerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hWK-5V-D6f" customClass="QrCodeScannerViewController" customModule="SpaceNews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O0d-2d-6Ar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1107,7 +1107,7 @@
         <!--Tab View Controller-->
         <scene sceneID="3uR-pv-3Ol">
             <objects>
-                <tabBarController storyboardIdentifier="TabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jlE-ai-grY" customClass="TabViewController" customModule="Storyboard_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jlE-ai-grY" customClass="TabViewController" customModule="SpaceNews" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="wuJ-aw-EzQ"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2yx-7c-sfo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

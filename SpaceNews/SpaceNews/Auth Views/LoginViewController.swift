@@ -12,12 +12,13 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Coloca Cantos arredondados
         emailTextField.layer.cornerRadius = CGFloat(radius)
         passwordTextField.layer.cornerRadius = CGFloat(radius)
         signInButton.layer.cornerRadius = CGFloat(radius)
         
         
+        //Muda a cor do placeholder
         emailTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: emailTextField.frame.height))
         emailTextField.leftViewMode = .always
         emailTextField.attributedPlaceholder = NSAttributedString(
@@ -27,7 +28,6 @@ class LoginViewController: UIViewController {
         
         passwordTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: passwordTextField.frame.height))
         passwordTextField.leftViewMode = .always
-        
         passwordTextField.attributedPlaceholder = NSAttributedString(
             string: "Password",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "muted")]

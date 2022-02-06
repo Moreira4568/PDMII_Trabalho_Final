@@ -1,11 +1,3 @@
-//
-//  ApiService.swift
-//  Rest API
-//
-//  Created by Niso on 4/29/20.
-//  Copyright © 2020 Niso. All rights reserved.
-//
-
 import Foundation
 
 class ApiService {

@@ -55,6 +55,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
         show(vc, sender: true)
     }
     
+    //Vai buscar os dados da conta ao firebase
     func getMyData() {
         self.db.collection("users")
             .whereField("idUser", isEqualTo: user?.uid as Any)
@@ -71,6 +72,8 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
             }
     }
     
+    //Formulário de Partilha
+    
     @IBAction func shareInstagram(_ sender: Any) {
         guard let image = self.image, let url = URL(string: news?.url ?? "") else {
             return
@@ -83,7 +86,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
         
         present(shareSheetvc, animated: true)
     }
-    
+    //Verifica se tem like ou não e muda o icon
     func verifyLike(){
         db.collection("likes")
             .whereField("idUser", isEqualTo: self.user?.uid)
@@ -112,6 +115,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
         
     }
     
+    //Faz e tira likes
     func makeLike() {
         db.collection("likes")
             .whereField("idUser", isEqualTo: user?.uid as Any)
@@ -145,6 +149,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
         }
     }
     
+    //Mostra alerta
     func showAlert(title: String, message: String){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
@@ -155,6 +160,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
         present(alertController, animated: true)
     }
     
+    //Faz novo comentário
     func newComment(){
         if inputComments.text != "" {
             var ref: DocumentReference? = nil
@@ -190,6 +196,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
 
     }
     
+    //Atualiza os comments
     func getComments(){
         db.collection("comments").whereField("idNotice", isEqualTo: news?.id as Any).getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -236,6 +243,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate{
         }.resume()
     }
     
+    //Abre a fonte da noticia
     @IBAction func newsSourceRedirect(_ sender: Any) {
         let safariVC = SFSafariViewController(url: NSURL(string: self.news?.url ?? "")! as URL)
         self.present(safariVC, animated: true, completion: nil)
